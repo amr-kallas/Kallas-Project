@@ -75,15 +75,15 @@ a{
         height: 50px;
     }
 }
-.heading ul{
+.heading .mainNav{
     display: flex;
 }
 @media(max-width:767px){
-    .heading ul{
+    .heading .mainNav{
         margin: auto;
     }
 }
-.heading ul > li > a{
+.heading .mainNav > li > a{
     padding: 0 30px;
     color: black;
     position: relative;
@@ -100,7 +100,7 @@ a{
         height: 40px;
     }
 }
-.heading ul > li > a::before{
+.heading .mainNav > li > a::before{
     content: "";
     position: absolute;
     width: 100%;
@@ -110,14 +110,83 @@ a{
     left: -100%;
     transition: 0.3s;
 }
-.heading ul > li > a:hover{
+.heading .mainNav > li > a:hover{
     color: var(--main-color);
     background-color: #f6f6f6;
 }
-.heading ul > li > a:hover::before{
+.heading .mainNav > li > a:hover::before{
     left: 0;
 }
 /* End Heading */
+/* Start Megamenu */
+.heading .meagmenu{
+    gap: 40px;
+    position: absolute;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    padding: 30px;
+    top: calc(100% + 50px);
+    z-index: 1;
+    border-bottom: 3px solid var(--main-color);
+    display: none;
+}
+
+.heading .active{
+    display: flex !important;
+    top: 102%;
+}
+.heading .meagmenu img{
+    max-width: 100%;
+}
+@media(max-width:991px){
+    .heading .meagmenu .image{
+        display: none;
+    }
+}
+.heading .meagmenu ul{
+    min-width: 240px;
+    flex: 1;
+}
+.heading .meagmenu ul li{
+    position: relative;
+}
+@media(max-width:767px){
+    .heading .meagmenu{
+        flex-direction: column;
+        gap: 0;
+
+    }
+}
+.heading .meagmenu ul li:not(:last-child){
+    border-bottom: solid 1px #e9e6e6;
+}
+.heading .meagmenu ul li::before{
+    content: "";
+    position: absolute;
+    transition: 0.7s;
+    width: 0;
+    height: 100%;
+    background-color: #f6f6f6;
+    z-index: -1;
+}
+
+
+.heading .meagmenu ul li:hover::before{
+    width: 100%;
+}
+.heading .meagmenu ul li a{
+    padding: 15px;
+    display: block;
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 18px;
+}
+.heading .meagmenu ul li a i{
+    margin-right: 10px;
+}
+/* End Megamenu */
+
 /* Start Landing */
 .landing{
     position: relative;
@@ -202,3 +271,6 @@ a{
     }
 }
 /* End Animation */
+.heading .mainNav > li:hover .meagmenu{
+    background-color: red;
+}
