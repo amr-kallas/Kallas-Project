@@ -46,6 +46,46 @@ a{
         width: 1170px;
     }
 }
+.main-title{
+    margin: 100px auto;
+    border: 2px solid black;
+    padding: 15px 20px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+    font-size: 30px;
+    transition: 0.3s;
+}
+.main-title::before,
+.main-title::after{
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.main-title::before{
+    left: -30px;
+}
+.main-title::after{
+    right: -30px;
+}
+.main-title:hover::before{
+    animation: left-move 0.5s linear forwards;
+    z-index: -1;
+}
+.main-title:hover::after{
+    animation: right-move 0.5s linear forwards;
+    z-index: -1;
+}
+.main-title:hover{
+    color: white;
+    border: 2px solid white;
+    transition-delay: 0.5s;
+}
 /* End Global Rules */
 /* Start Heading */
 .heading{
@@ -253,6 +293,56 @@ a{
     color: var(--main-color-alt);
 }
 /* End Landing */
+/* Start Articles */
+.articles{
+    padding: 100px 0;
+    position: relative;
+}
+.articles .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 40px;
+}
+.articles .box{
+    box-shadow: 0px 2px 15px rgb(0 0 0 /10%);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.articles .box:hover{
+    transform: translateY(-10px);
+    box-shadow:0 2px 15px rgb(0 0 0 /30%);
+
+}
+.articles .box img{
+    max-width: 100%;
+}
+.articles .box .content{
+    padding: 20px;
+}
+.articles .box .content p{
+    margin-top: 10px;
+    line-height: 1.5;
+    color: #777;
+}
+.articles .box .more{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.articles .box .more a{
+    color: var(--main-color);
+    font-weight: bold;
+}
+.articles .box .more i{
+    color: var(--main-color);   
+}
+.articles .box:hover i{
+    animation: arrow-right 0.7s linear forwards;
+}
+/* End Articles */
+
 /* Start Animation */
 @keyframes up-down {
     0%,100%{
@@ -269,8 +359,36 @@ a{
     40%,60%{
         top: -15px;
     }
+   
+}
+@keyframes left-move {
+       50%{
+           left: 0;
+       } 
+       100%{
+           left: 0;
+           border-radius: 0;
+           width: 50%;
+           height: 100%;
+       }
+}
+@keyframes right-move {
+    50%{
+        right: 0;
+    } 
+    100%{
+        right: 0;
+        border-radius: 0;
+        width: 50%;
+        height: 100%;
+    }
+}
+@keyframes arrow-right {
+    50%{
+        transform: translateX(10px);
+    }
+    100%{
+        transform: translateX(0);
+    }
 }
 /* End Animation */
-.heading .mainNav > li:hover .meagmenu{
-    background-color: red;
-}
