@@ -561,6 +561,169 @@ a{
 }
 /* End Testimonials */
 
+/* Start Test */
+.test{
+    padding: 100px 0;
+    /* position: relative; */
+}
+.test .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 40px;
+}
+.test .box{
+    position: relative;
+    transition: 0.3s;
+}
+.test .box::before,
+.test .box::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: #f3f3f3;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+.test .box::before{
+    width: calc(100% - 60px);
+    z-index: -2;
+}
+.test .box::after{
+    background-color: #e4e4e4;
+    z-index: -1;
+}
+.test .box:hover::after{
+    width: calc(100% - 60PX);
+}
+.test .info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+}
+.test .info img{
+    width: calc(100% - 60px);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.test .box:hover img{
+    filter: grayscale(100%);
+}
+.test .info .social{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 10px;
+}
+.test .info .social a{
+    color: #777;
+}
+.test .info a:hover i{
+    color: var(--main-color);
+}
+.test .other{
+    padding-left: 80px;
+}
+.test .other h3{
+    padding: 20px 0;
+    color: var(--main-color);
+    font-size: 22px;
+}
+.test .box:hover h3{
+    color: #777;
+}
+.test .other p{
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+/* End Test */
+
+/* Start Services */
+.services{
+    padding: 100px 0;
+    background-color: #ececec;
+}
+.services .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 40px;
+}
+.services .box{
+    background-color: white;
+    position: relative;
+    transition: 0.3s;
+    counter-increment: services;
+}
+.services .box:hover{
+    transform: translateY(-10px);
+}
+.services .box::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--main-color);
+    width: 0;
+    height: 3px;
+    transition: 0.3s;
+}
+.services .box:hover::before{
+    width: 100%;
+}
+
+.services .box i{
+    font-size: 40px;
+    color: #777;
+    display: block;
+    text-align: center;
+    margin: 30px auto 20px;
+}
+.services .box h3{
+    text-align: center;
+    color: var(--main-color);
+    padding-bottom: 30px;
+}
+.services .box .info{
+    padding: 15px;
+    color: var(--main-color);
+    text-align: right;
+    background-color: #f9f9f9;
+    position: relative;
+    font-size: 18px;
+}
+.services .box .info::before{
+    content: "0" counter(services);
+    position: absolute;
+    left: 0;
+    background-color: var(--main-color);
+    color: white;
+    width: 80px;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    padding-right: 15px;
+}
+.services .box .info::after{
+    content: "";
+    position: absolute;
+    left: 80px;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    background-color: #d5d5d5;
+    transform: skewX(-30deg);
+
+}
+/* End Services */
+
+
 /* Start Animation */
 @keyframes up-down {
     0%,100%{
